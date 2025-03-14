@@ -1,0 +1,116 @@
+$date
+	Fri Mar 14 03:38:46 2025
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module testbench $end
+$var wire 1 ! val $end
+$var wire 1 " full $end
+$var wire 5 # dataout [4:0] $end
+$var parameter 32 $ DATA_W $end
+$var parameter 32 % LIFO_SIZE $end
+$var reg 1 & clock $end
+$var reg 5 ' datain [4:0] $end
+$var reg 1 ( read $end
+$var reg 1 ) reset $end
+$var reg 1 * write $end
+$scope module example_lifo $end
+$var wire 1 & clock $end
+$var wire 5 + datain [4:0] $end
+$var wire 5 , dataout [4:0] $end
+$var wire 1 ( read $end
+$var wire 1 ) reset $end
+$var wire 1 * write $end
+$var parameter 32 - DATA_W $end
+$var parameter 32 . LIFO_SIZE $end
+$var reg 1 / count $end
+$var reg 1 " full $end
+$var reg 5 0 out_elem [4:0] $end
+$var reg 1 ! val $end
+$scope begin read_write $end
+$upscope $end
+$scope begin regs $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+b10 .
+b101 -
+b10 %
+b101 $
+$end
+#0
+$dumpvars
+bx 0
+x/
+bx ,
+bx +
+0*
+1)
+0(
+bx '
+0&
+bx #
+x"
+x!
+$end
+#1
+0!
+0"
+0/
+b10011 '
+b10011 +
+1*
+0)
+1&
+#2
+0&
+#3
+1/
+b11001 '
+b11001 +
+1&
+#4
+0&
+#5
+1"
+0/
+1(
+0*
+1&
+#6
+0&
+#7
+0"
+0(
+1&
+#8
+0&
+#9
+b10000 '
+b10000 +
+1*
+1(
+1&
+#10
+0&
+#11
+1&
+#12
+0&
+#13
+1&
+#14
+0&
+#15
+1&
+#16
+0&
+#17
+1&
