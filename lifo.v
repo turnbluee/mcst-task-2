@@ -9,13 +9,17 @@ module lifo #(
     input wire [DATA_W-1:0] datain,
     output wire [DATA_W-1:0] dataout,
     output reg val,
-    output reg full
+    output wire full
 );
 
-    reg [$clog2(LIFO_SIZE)-1:0] count;
+    localparam COUNT_W = $clog2(LIFO_SIZE+1);
+    reg [COUNT_W-1:0] count;
+
     reg [DATA_W-1:0] elem [LIFO_SIZE-1:0];
     reg [DATA_W-1:0] out_elem;
     assign dataout = out_elem;
+    assign full = count == LIFO_SIZE;
+
 
     always @(posedge clock) begin : regs
         count <= reset ? 0 :
@@ -24,14 +28,12 @@ module lifo #(
             read & count != 0 ? count - 1 :
             read & count == 0 ? 0 : count;
 
-        full <= (write & count == LIFO_SIZE - 1) | (count == LIFO_SIZE) ? 1 : 0;
-
         val <= read & count != 0 ? 1 : 0;
     end
 
     always @(posedge clock) begin : read_write
-        out_elem <= read & count != 0 ? elem[count-1] : out_elem; 
+        out_elem <= read & count != 0 ? elem[count - 1] : out_elem; 
 
-        elem[(read ? count-1 : count)] <= write ? datain : elem[(read ? count-1 : count)];
+        elem[(read ? count - 1 : count)] <= write & full == 0 ? datain : elem[(read ? count - 1 : count)];
     end
 endmodule

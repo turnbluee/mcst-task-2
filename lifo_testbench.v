@@ -31,24 +31,22 @@ module testbench;
 
         #2;
 
-        datain <= 5'b11001;
-     
+        datain <= 5'b11000;
+
         #2;
 
+        datain <= 5'b10100;
         write <= 0;
+
+        #2;
+
         read <= 1;
 
-        #2;
+        #6;
 
         read <= 0;
 
         #2;
-
-        read <= 1;
-        write <= 1;
-        datain <= 5'b10000;
-
-        #8;
 
         $finish;
     end
